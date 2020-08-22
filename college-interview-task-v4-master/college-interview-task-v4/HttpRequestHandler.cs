@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Generic;
-using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Threading;
@@ -11,7 +9,6 @@ namespace college_interview_task_v4
 {
     public abstract class HttpRequestHandler<TRequest, TResponse>
     {
-        public const string Variable1 = "abc";
 
         internal HttpClient _httpClientProxy;
 
@@ -25,33 +22,26 @@ namespace college_interview_task_v4
 
 
         public async Task<TResponse> Handle(TRequest request, object payload, HttpMethod methodName,
-                                            string pleaseProvideFullUrlHere, IDictionary<string, string> additionalHeaders,
+                                            string urlAdress, IDictionary<string, string> additionalHeaders,
                                             CancellationToken cancellationToken)
         {
-            var uriString = $"{_httpClientProxy.BaseAddress}{pleaseProvideFullUrlHere}";
+            var uriString = $"{_httpClientProxy.BaseAddress}{urlAdress}";
 
             var httpRequestMessage = new HttpRequestMessage(methodName, new Uri(uriString));
 
-            if (payload == null)
-            {
-            }
-            else
+            if (payload != null)
             {
                 httpRequestMessage.Content = payload as HttpContent;
             }
-
-            var headers = additionalHeaders;
-
-            if (headers == null)
+            
+            if (additionalHeaders != null)
             {
-            }
-            else
-            {
-                foreach (var header in headers)
+                foreach (var header in additionalHeaders)
                 {
                     httpRequestMessage.Headers.Add(header.Key, header.Value);
                 }
             }
+            
 
             HttpResponseMessage response = await _httpClientProxy.SendAsync(httpRequestMessage, cancellationToken);
 

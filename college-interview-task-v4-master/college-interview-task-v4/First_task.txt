@@ -1,0 +1,18 @@
+1) Klasa HttpRequestHandler jest głownie odpowiedzialna za przetwarzanie żądań(requests) oraz odpowiedzi(responses) podczas komunikacji 
+   np. klienta z serwerem. Aby wyświetlić daną strone WWW, nasza przeglądarka wysyła żadanie do serwera danej strony z prośbą o udostepnienie
+   danej zawartości, którą my jako klient, chcemy uzyskać. Połączenie nastepnie zostaje przerawane i zostaje wznowione dopiero gdy serwer odsyla
+   nam odpowiedz na nasze żądanie. Jeżeli status naszej odpowiedzi jest równy 200 - oznacza to że wszystko jest w porządku i otrzymaliśmy dostęp
+   do zawartości danej strony.
+
+2) Problemy jakie zauważyłem to przede wszystkim:
+	-słaba czytelność kodu, przez co zrozumienie poszczególnych bloków kodu jest znacznie utrudnione
+	-zła organizacje bloków warunkowych przez co zajmujemy dodatkowe miejsce w naszym kodzie i powodujemy jego powiększenie
+	-pojedyncze błedy takie jak, nieodpowiednie nazwewnictwo metody, bezensowne tworzenie zmiennej w metodzie i przypisywanie
+	 do niej wartosci parametru danej metody czy pojedyncza linijka nieuzywanego kodu (pole Variable1)
+
+3) Na pewno fajną rzeczą w tym kodzie jest zastosowanie obsługi wyjątków, przez co szanse na zatrzymanie działania naszej aplikacji, przez
+   nieoczekiwany błąd, znacznie maleją. Obsługa wyjatków jest bardzo ważną i przydatną rzeczą w pracy developera ponieważ pozwala przewidzieć
+   błędy i zapobieć ich wystąpieniu. 
+
+4) Dotychczas nie znalazłem niebezpieczeństwa wynikającego z zastosowania tej metody. 
+	

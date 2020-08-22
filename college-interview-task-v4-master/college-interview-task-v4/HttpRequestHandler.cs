@@ -13,12 +13,9 @@ namespace college_interview_task_v4
     {
         public const string Variable1 = "abc";
 
-
-
         internal HttpClient _httpClientProxy;
 
         private IHttpResponseParser<TResponse> _parser { get; }
-
 
 
         protected HttpRequestHandler(HttpClient httpClientProxy, IHttpResponseParser<TResponse> parser)
@@ -26,9 +23,10 @@ namespace college_interview_task_v4
             _parser = parser;
         }
 
+
         public async Task<TResponse> Handle(TRequest request, object payload, HttpMethod methodName,
-            string pleaseProvideFullUrlHere,
-            IDictionary<string, string> additionalHeaders, CancellationToken cancellationToken)
+                                            string pleaseProvideFullUrlHere, IDictionary<string, string> additionalHeaders,
+                                            CancellationToken cancellationToken)
         {
             var uriString = $"{_httpClientProxy.BaseAddress}{pleaseProvideFullUrlHere}";
 
